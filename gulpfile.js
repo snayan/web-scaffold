@@ -83,8 +83,6 @@ let config = Object.assign({}, baseConfig, {
     dirname: args.d + ''
 });
 
-console.log(args.d);
-
 let isNewCommand = args._.length && args._[0] === 'new';
 let target = path.resolve(process.cwd(), config.dirname);
 if (!fs.existsSync(target) && !isNewCommand) {

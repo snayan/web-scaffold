@@ -68,20 +68,22 @@ function getIndexHtml() {
 
 module.exports = (gulp, plugins, config) => () => {
     let dirname = config.dirname;
+    let resolve = (fileName) => path.resolve(dirname, fileName);
     gulp.task('new', () => {
         if (exitProgram(dirname)) {
             return gulp.log.error(`${dirname} already exit`)
         }
         createDir(dirname).then(() => {
-                let dirs = ['scripts', 'images', 'scsss'].map(v => createDir(path.resolve(dirname, v)));
+                let dirs = ['scripts', 'images', 'scsss'].map(v => createDir(resolve(v)));
+                console.log(resolve('scripts'));
                 return Promise.all(dirs)
             })
             .then(() => {
                 let files = [
-                    createFile(path.resolve(dirname, 'configfile.js'), getConfigFileTemp()),
-                    createFile(path.resolve(dirname, 'index.html'), getIndexHtml()),
-                    createFile(path.resolve(dirname, 'scripts/index.js'), 'console.log("hello world")'),
-                    createFile(path.resolve(dirname, 'scsss/index.scss'), '')
+                    createFile(resolve('configfile.js'), getConfigFileTemp()),
+                    createFile(resolve('index.html'), getIndexHtml()),
+                    createFile(resolve('scripts/index.js'), 'console.log("hello world")'),
+                    createFile(resolve('scsss/index.scss'), '')
                 ]
                 return Promise.all(files);
             })
