@@ -31,7 +31,7 @@
 
 ## 命令
 
-命令的创建方式是基于**[yargs](https://github.com/yargs/yargs)**。基本命令格式是
+命令的创建方式是基于[yargs](https://github.com/yargs/yargs)。基本命令格式是
 
 ````bash
 gulp command -d progranName [-p]
@@ -58,7 +58,7 @@ Examples：
 
 根配置文件默认结构，可根据实际项目修改
 
-````json
+````javascript
 {
   //项目编译环境
   "env":"development",
