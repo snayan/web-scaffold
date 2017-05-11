@@ -40,15 +40,15 @@ function createFile(name, content) {
 function getConfigFileTemp() {
     let config = {
         "index.html": {
-            title: '页面标题',
-            keywords: '页面关键字',
-            description: '页面描述'
+            "title": "页面标题",
+            "keywords": "页面关键字",
+            "description": "页面描述"
         },
-        env: 'production',
-        dest: 'build',
-        vendor: {
-            js: 'build/scripts',
-            css: 'build/scsss'
+        "env": "production",
+        "dest": "build",
+        "vendor": {
+            "js": "build/scripts",
+            "css": "build/scsss"
         }
     }
     return `const config = ${JSON.stringify(config, null, '  ')}

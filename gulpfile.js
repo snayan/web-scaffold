@@ -413,7 +413,7 @@ gulp.task('default', Object.keys(tasks), () => {
 
 /*clean 任务*/
 gulp.task('clean', () => {
-    del(path.resolve(target, config.dest));
+    del(path.resolve(target));
 });
 
 /*compress 任务*/
