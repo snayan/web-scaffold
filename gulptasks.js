@@ -11,7 +11,7 @@ module.exports = (plugins, config) => {
                 pxtorem(config.pxtorem)
             ]
             if (ispro) {
-                postcsss.unshift(cssnano());
+                postcsss.push(cssnano());
             }
             stream = stream.pipe(plugins.sass().on('error', plugins.sass.logError));
             stream = stream.pipe(plugins.postcss(postcsss));
